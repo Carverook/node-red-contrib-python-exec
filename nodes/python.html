@@ -1,0 +1,27 @@
+<script type="text/javascript">
+    RED.nodes.registerType('python',{ 
+        category: 'function',
+        color: '#C0DEED',
+        defaults: {
+            name: {value:""},
+            pythonCode: {value:"", required:true},
+            pipModules: {value:"", required:false}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "file.png",
+        label: function() {return this.name||"python";},
+        oneditprepare: function() {
+            $("#node-input-pythonCode").typedInput({types:['str']});
+        },
+    });
+</script>
+
+<div class="form-row">
+    <label for="node-input-pythonCode"><i class="fa fa-code"></i> Python Code</label>
+    <input type="text" id="node-input-pythonCode">
+</div>
+<div class="form-row">
+    <label for="node-input-pipModules"><i class="fa fa-cubes"></i> Pip Modules (comma separated)</label>
+    <input type="text" id="node-input-pipModules">
+</div>
